@@ -3,7 +3,7 @@
 // меню
 const leftMenu = document.querySelector('.left-menu');
 const hamburger = document.querySelector('.hamburger');
-
+const dataBack = document.querySelectorAll('.tv-card__img');
 // открытие/закрытие меню
 
 hamburger.addEventListener('click', () => {
@@ -31,4 +31,17 @@ leftMenu.addEventListener('click', (event) => {
     leftMenu.classList.add('openMenu');
     hamburger.classList.add('open');
   }
+});
+
+// показывать изображение д/з
+
+dataBack.forEach(element => {   // выбираем каждый элемент массива
+  const source = element.src;   
+  element.addEventListener('mouseenter', () => { //при наведении 
+    element.src = element.dataset.backdrop;
+  });
+
+  element.addEventListener('mouseleave', () => { //вне поля
+    element.src = source;
+  });
 });
